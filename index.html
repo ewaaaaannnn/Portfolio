@@ -22,6 +22,7 @@
       <li><a href="#about">About Me</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -77,16 +78,41 @@
         <p>A dynamic ticket service platform where users can create events, explore upcoming events, and claim tickets.
         </p>
       </a>
-      <a href="#" class="project-card">
+      <a href="https://allspice.ewanferguson.org/#/" class="project-card">
         <h3>All Spice</h3>
         <p>A community-driven platform for sharing and discovering recipes. Users can post their own creations and
           explore others’ recipes.</p>
       </a>
-      <a href="#" class="project-card">
+      <a href="https://keepr.ewanferguson.org/#/" class="project-card">
         <h3>Keepr</h3>
         <p>A platform for discovering, saving, and sharing inspiration. Users can create vaults and explore ideas from
           others.</p>
       </a>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="blog">
+    <h2>Blog</h2>
+    <div class="blog-posts">
+      <div class="blog-post">
+        <h3><a href="#">Understanding Async Programming in JavaScript</a></h3>
+        <p>Asynchronous programming is essential for building non-blocking, efficient web applications. In this post, I
+          break down how async/await works and best practices for handling asynchronous code in JavaScript.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+      <div class="blog-post">
+        <h3><a href="#">Getting Started with React: A Beginner's Guide</a></h3>
+        <p>React is one of the most popular JavaScript libraries for building modern UIs. In this guide, we walk through
+          setting up a React project and building your first component.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+      <div class="blog-post">
+        <h3><a href="#">Exploring GraphQL and its Advantages over REST</a></h3>
+        <p>GraphQL provides a more efficient and flexible alternative to REST APIs. This post covers what GraphQL is,
+          its benefits, and why you should consider using it in your applications.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
     </div>
   </section>
 
@@ -102,6 +128,9 @@
   <footer>
     <p>&copy; 2025 Ewan Ferguson. All rights reserved.</p>
   </footer>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 
 </html>
@@ -119,7 +148,7 @@
 
   /* Header styles */
   header {
-    padding: 50px 0;
+    padding: 50px 20px;
     background: rgba(0, 0, 0, 0.6);
     margin-bottom: 20px;
   }
@@ -154,10 +183,12 @@
     list-style-type: none;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
   }
 
   nav ul li {
-    margin: 0 20px;
+    margin: 10px;
   }
 
   nav ul li a {
@@ -287,6 +318,60 @@
     background: #444;
   }
 
+  /* Blog Section */
+  .blog {
+    padding: 60px 20px;
+    background: #444;
+  }
+
+  .blog h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #fdbb2d;
+  }
+
+  .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .blog-post {
+    background: #333;
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .blog-post h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .blog-post a {
+    text-decoration: none;
+    color: #fdbb2d;
+  }
+
+  .blog-post p {
+    font-size: 1em;
+    color: #ccc;
+  }
+
+  .blog-post .read-more {
+    font-size: 1.1em;
+    color: #fdbb2d;
+    text-decoration: underline;
+  }
+
+  .blog-post:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #555;
+  }
+
   /* Contact Section */
   .contact {
     background: #222;
@@ -335,13 +420,54 @@
 
     nav ul {
       flex-direction: column;
+      align-items: center;
     }
 
     nav ul li {
       margin-bottom: 10px;
     }
+
+    .about h2,
+    .skills h2,
+    .projects h2,
+    .blog h2,
+    .contact h2 {
+      font-size: 2.2em;
+    }
+
+    .about p,
+    .skills-card p {
+      font-size: 1em;
+    }
+
+    .project-card h3 {
+      font-size: 1.5em;
+    }
+
+    .project-card p {
+      font-size: 0.9em;
+    }
+
+    .blog-post h3 {
+      font-size: 1.5em;
+    }
+
+    .blog-post p {
+      font-size: 0.9em;
+    }
+
+    .blog-post .read-more {
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 2em;
+    }
+
+    nav ul li a {
+      font-size: 1em;
+    }
   }
 </style>
-
-<!-- Font Awesome for icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
