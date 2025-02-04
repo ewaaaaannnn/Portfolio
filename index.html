@@ -69,7 +69,7 @@
   <section id="projects" class="projects">
     <h2>Projects</h2>
     <div class="project-grid">
-      <a href="#" class="project-card">
+      <a href="https://forge.ewanferguson.org/#/" class="project-card">
         <h3>Forge</h3>
         <p>A subcontractor tool connecting businesses and consumers, facilitating B2B and D2C interactions.</p>
       </a>
@@ -96,22 +96,25 @@
     <h2>Blog</h2>
     <div class="blog-posts">
       <div class="blog-post">
-        <h3><a href="#">Understanding Async Programming in JavaScript</a></h3>
+        <h3><a href="javascript:void(0)" onclick="openModal('post1')">Understanding Async Programming in JavaScript</a>
+        </h3>
         <p>Asynchronous programming is essential for building non-blocking, efficient web applications. In this post, I
           break down how async/await works and best practices for handling asynchronous code in JavaScript.</p>
-        <a href="#" class="read-more">Read More</a>
+        <a href="javascript:void(0)" onclick="openModal('post1')" class="read-more">Read More</a>
       </div>
       <div class="blog-post">
-        <h3><a href="#">Getting Started with React: A Beginner's Guide</a></h3>
+        <h3><a href="javascript:void(0)" onclick="openModal('post2')">Getting Started with React: A Beginner's Guide</a>
+        </h3>
         <p>React is one of the most popular JavaScript libraries for building modern UIs. In this guide, we walk through
           setting up a React project and building your first component.</p>
-        <a href="#" class="read-more">Read More</a>
+        <a href="javascript:void(0)" onclick="openModal('post2')" class="read-more">Read More</a>
       </div>
       <div class="blog-post">
-        <h3><a href="#">Exploring GraphQL and its Advantages over REST</a></h3>
+        <h3><a href="javascript:void(0)" onclick="openModal('post3')">Exploring GraphQL and its Advantages over REST</a>
+        </h3>
         <p>GraphQL provides a more efficient and flexible alternative to REST APIs. This post covers what GraphQL is,
           its benefits, and why you should consider using it in your applications.</p>
-        <a href="#" class="read-more">Read More</a>
+        <a href="javascript:void(0)" onclick="openModal('post3')" class="read-more">Read More</a>
       </div>
     </div>
   </section>
@@ -129,8 +132,63 @@
     <p>&copy; 2025 Ewan Ferguson. All rights reserved.</p>
   </footer>
 
+  <!-- Modals for Blog Posts -->
+  <div id="post1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('post1')">&times;</span>
+      <h2>Understanding Async Programming in JavaScript</h2>
+      <p>Asynchronous programming is essential for building non-blocking, efficient web applications. In this post, I
+        break down how async/await works and best practices for handling asynchronous code in JavaScript. It's a
+        powerful
+        concept that allows developers to write code that doesn't block the main thread, keeping apps responsive and
+        fast.
+      </p>
+    </div>
+  </div>
+
+  <div id="post2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('post2')">&times;</span>
+      <h2>Getting Started with React: A Beginner's Guide</h2>
+      <p>React is one of the most popular JavaScript libraries for building modern UIs. In this guide, we walk through
+        setting up a React project and building your first component. We dive into JSX, components, props, and state,
+        key concepts that make React powerful and flexible.</p>
+    </div>
+  </div>
+
+  <div id="post3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('post3')">&times;</span>
+      <h2>Exploring GraphQL and its Advantages over REST</h2>
+      <p>GraphQL provides a more efficient and flexible alternative to REST APIs. This post covers what GraphQL is, its
+        benefits, and why you should consider using it in your applications. Unlike REST, GraphQL allows you to query
+        exactly the data you need, avoiding over-fetching and under-fetching problems.</p>
+    </div>
+  </div>
+
   <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
+    // Function to open the modal
+    function openModal(postId) {
+      document.getElementById(postId).style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal(postId) {
+      document.getElementById(postId).style.display = 'none';
+    }
+
+    // Close modals when clicking outside the modal
+    window.onclick = function (event) {
+      const modals = document.getElementsByClassName('modal');
+      for (let i = 0; i < modals.length; i++) {
+        if (event.target === modals[i]) {
+          modals[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
@@ -154,319 +212,232 @@
   }
 
   header h1 {
-    font-size: 3.5em;
+    font-size: 3.5rem;
     margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
   }
 
   header p {
-    font-size: 1.2em;
-    color: #ccc;
+    font-size: 1.25rem;
   }
 
-  .container {
-    padding: 0 20px;
-  }
-
-  /* Navigation */
-  nav {
-    background: #222;
-    padding: 15px 0;
-    top: 0;
-    z-index: 100;
-  }
-
+  /* Navigation styles */
   nav ul {
-    list-style-type: none;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    padding: 10px 0;
     margin: 0;
+    background-color: #333;
   }
 
   nav ul li {
-    margin: 10px;
+    margin: 0 15px;
   }
 
   nav ul li a {
-    text-decoration: none;
     color: white;
-    font-size: 1.2em;
+    text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
   }
 
   nav ul li a:hover {
-    color: #fdbb2d;
+    text-decoration: underline;
   }
 
   /* About Me Section */
   .about {
-    padding: 60px 20px;
-    background: #222;
-  }
-
-  .about h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #fdbb2d;
-  }
-
-  .about p {
-    font-size: 1.1em;
-    color: #ccc;
-    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333;
+    padding: 50px 20px;
   }
 
   /* Skills Section */
   .skills {
-    padding: 60px 20px;
-    background: #333;
-  }
-
-  .skills h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #fdbb2d;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 50px 20px;
   }
 
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
+    gap: 20px;
+    margin-top: 30px;
   }
 
   .skill-card {
-    background: #444;
+    background: #fff;
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    color: white;
-  }
-
-  .skill-card i {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: #fdbb2d;
   }
 
   .skill-card h3 {
-    font-size: 1.6em;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 10px;
   }
 
   .skill-card p {
-    font-size: 1em;
-    color: #ccc;
+    font-size: 1rem;
+    color: #555;
   }
 
-  .skill-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background: #555;
-  }
-
-  /* Projects Section */
+  /* Project Section */
   .projects {
-    padding: 60px 20px;
-  }
-
-  .projects h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #fdbb2d;
+    background-color: #ffffff;
+    color: #333;
+    padding: 50px 20px;
   }
 
   .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
   }
 
   .project-card {
-    background: #333;
-    padding: 25px;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #333;
     color: white;
+    padding: 30px;
+    border-radius: 8px;
     text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .project-card h3 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-size: 1.5rem;
   }
 
   .project-card p {
-    font-size: 1em;
-    color: #ccc;
+    font-size: 1rem;
+    color: #bbb;
   }
 
   .project-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background: #444;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 
   /* Blog Section */
   .blog {
-    padding: 60px 20px;
-    background: #444;
-  }
-
-  .blog h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #fdbb2d;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 50px 20px;
   }
 
   .blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-
-  .blog-post {
-    background: #333;
-    padding: 25px;
-    border-radius: 15px;
-    color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
   }
 
   .blog-post h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 10px;
   }
 
-  .blog-post a {
+  .read-more {
+    font-size: 1.2rem;
+    color: #f4b400;
     text-decoration: none;
-    color: #fdbb2d;
+    cursor: pointer;
+    transition: color 0.3s ease;
   }
 
-  .blog-post p {
-    font-size: 1em;
-    color: #ccc;
+  .read-more:hover {
+    color: #e0a800;
   }
 
-  .blog-post .read-more {
-    font-size: 1.1em;
-    color: #fdbb2d;
-    text-decoration: underline;
+  .blog-post {
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 0.2s;
+    /* Delay the animation for each blog post */
   }
 
-  .blog-post:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background: #555;
+  .blog-post:nth-child(2) {
+    animation-delay: 0.4s;
   }
 
-  /* Contact Section */
-  .contact {
-    background: #222;
-    padding: 60px 20px;
+  .blog-post:nth-child(3) {
+    animation-delay: 0.6s;
   }
 
-  .contact h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #fdbb2d;
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
-  .contact p {
-    font-size: 1.1em;
-    margin: 10px 0;
-    color: #ccc;
-  }
-
-  .contact a {
-    color: #fdbb2d;
-    text-decoration: none;
-  }
-
-  /* Footer */
-  footer {
-    background: #1e1e1e;
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
     padding: 20px;
-    margin-top: 40px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
   }
 
-  footer p {
-    color: #ccc;
-    font-size: 1em;
+  .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
   }
 
-  /* Mobile Styles */
-  @media (max-width: 768px) {
-    header h1 {
-      font-size: 2.5em;
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
     }
 
-    .skills-grid {
-      grid-template-columns: 1fr;
-      /* Stack cards on smaller screens */
-    }
-
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    nav ul li {
-      margin-bottom: 10px;
-    }
-
-    .about h2,
-    .skills h2,
-    .projects h2,
-    .blog h2,
-    .contact h2 {
-      font-size: 2.2em;
-    }
-
-    .about p,
-    .skills-card p {
-      font-size: 1em;
-    }
-
-    .project-card h3 {
-      font-size: 1.5em;
-    }
-
-    .project-card p {
-      font-size: 0.9em;
-    }
-
-    .blog-post h3 {
-      font-size: 1.5em;
-    }
-
-    .blog-post p {
-      font-size: 0.9em;
-    }
-
-    .blog-post .read-more {
-      font-size: 1em;
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  @media (max-width: 480px) {
-    header h1 {
-      font-size: 2em;
-    }
+  /* Smooth transition for project and blog cards */
+  .project-card,
+  .blog-post {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+  }
 
-    nav ul li a {
-      font-size: 1em;
-    }
+  .project-card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  .project-card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .project-card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .project-card:nth-child(4) {
+    animation-delay: 0.8s;
   }
 </style>
